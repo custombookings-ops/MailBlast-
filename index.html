@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAILBLAST — Bulk Gmail Sender</title>
 <!-- Google Identity Services -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://accounts.google.com/gsi/client"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -881,45 +881,53 @@ let tokenClient = null;
 function connectGmail() {
 const clientId = document.getElementById(‘clientIdInput’).value.trim();
 if (!clientId || !clientId.includes(’.apps.googleusercontent.com’)) {
-alert(‘Please enter a valid Google Client ID (ends with .apps.googleusercontent.com)’);
+alert(‘Please enter a valid Google Client ID ending in .apps.googleusercontent.com’);
 return;
 }
-
-// Save client ID for token refresh
 window._clientId = clientId;
 
+// Wait for google object to be available
+function tryInit(attempts) {
+if (attempts <= 0) {
+alert(‘Google sign-in failed to load. Please check your internet connection and reload the page.’);
+return;
+}
+if (typeof google === ‘undefined’ || !google.accounts) {
+setTimeout(() => tryInit(attempts - 1), 500);
+return;
+}
+try {
 tokenClient = google.accounts.oauth2.initTokenClient({
 client_id: clientId,
 scope: ‘https://www.googleapis.com/auth/gmail.send email profile’,
 callback: async (tokenResponse) => {
 if (tokenResponse.error) {
-showNotif(‘error’, ‘✕’, ’Auth failed: ’ + tokenResponse.error);
+alert(’Sign-in error: ’ + tokenResponse.error + ‘\n\nMake sure:\n1. Gmail API is enabled\n2. Your GitHub Pages URL is in Authorized JavaScript Origins\n3. Your Gmail is added as a test user’);
 return;
 }
 accessToken = tokenResponse.access_token;
-
-```
-  // Get user email via tokeninfo
-  try {
-    const res = await fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`);
-    const info = await res.json();
-    const email = info.email || 'Connected';
-    document.getElementById('authEmail').textContent = email;
-    document.getElementById('authBadge').classList.add('connected');
-    document.getElementById('authOverlay').style.display = 'none';
-    connected = true;
-    showNotif('success', '✓', `Signed in as ${email}`);
-  } catch(e) {
-    document.getElementById('authEmail').textContent = 'Connected';
-    document.getElementById('authOverlay').style.display = 'none';
-    connected = true;
-  }
+try {
+const res = await fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`);
+const info = await res.json();
+const email = info.email || ‘Connected’;
+document.getElementById(‘authEmail’).textContent = email;
+document.getElementById(‘authBadge’).classList.add(‘connected’);
+document.getElementById(‘authOverlay’).style.display = ‘none’;
+connected = true;
+showNotif(‘success’, ‘✓’, `Signed in as ${email}`);
+} catch(e) {
+document.getElementById(‘authEmail’).textContent = ‘Connected’;
+document.getElementById(‘authOverlay’).style.display = ‘none’;
+connected = true;
 }
-```
-
+}
 });
-
 tokenClient.requestAccessToken({ prompt: ‘consent’ });
+} catch(e) {
+alert(’Error initializing Google sign-in: ’ + e.message);
+}
+}
+tryInit(10);
 }
 
 function disconnectGmail() {
