@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,608 +22,606 @@
     --warning: #ffb84d;
   }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-background: var(–bg);
-color: var(–text);
-font-family: ‘DM Mono’, monospace;
-min-height: 100vh;
-overflow-x: hidden;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-/* Grid background */
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-background-image:
-linear-gradient(rgba(124,108,255,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(124,108,255,0.04) 1px, transparent 1px);
-background-size: 40px 40px;
-pointer-events: none;
-z-index: 0;
-}
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(124,108,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,108,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.container {
-max-width: 900px;
-margin: 0 auto;
-padding: 40px 24px 80px;
-position: relative;
-z-index: 1;
-}
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
 
-/* Header */
-header {
-display: flex;
-align-items: flex-end;
-justify-content: space-between;
-margin-bottom: 48px;
-padding-bottom: 24px;
-border-bottom: 1px solid var(–border);
-}
+  /* Header */
+  header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
 
-.logo {
-font-family: ‘Syne’, sans-serif;
-font-size: 28px;
-font-weight: 800;
-letter-spacing: -0.5px;
-}
-.logo span { color: var(–accent); }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--accent); }
 
-.logo-sub {
-font-size: 11px;
-color: var(–muted);
-letter-spacing: 3px;
-text-transform: uppercase;
-margin-top: 2px;
-}
+  .logo-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
 
-.auth-badge {
-display: flex;
-align-items: center;
-gap: 8px;
-font-size: 12px;
-padding: 8px 14px;
-background: var(–surface2);
-border: 1px solid var(–border);
-border-radius: 6px;
-color: var(–muted);
-cursor: pointer;
-transition: all 0.2s;
-}
-.auth-badge:hover { border-color: var(–accent); color: var(–accent); }
-.auth-badge .dot {
-width: 7px; height: 7px;
-border-radius: 50%;
-background: var(–muted);
-}
-.auth-badge.connected .dot { background: var(–success); }
-.auth-badge.connected { color: var(–success); border-color: rgba(61,255,160,0.3); }
+  .auth-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 8px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .auth-badge:hover { border-color: var(--accent); color: var(--accent); }
+  .auth-badge .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+  }
+  .auth-badge.connected .dot { background: var(--success); }
+  .auth-badge.connected { color: var(--success); border-color: rgba(61,255,160,0.3); }
 
-/* Steps indicator */
-.steps {
-display: flex;
-gap: 0;
-margin-bottom: 36px;
-}
-.step {
-flex: 1;
-padding: 12px 16px;
-font-size: 11px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(–muted);
-border-bottom: 2px solid var(–border);
-transition: all 0.3s;
-}
-.step.active {
-color: var(–accent);
-border-bottom-color: var(–accent);
-}
-.step.done {
-color: var(–success);
-border-bottom-color: var(–success);
-}
-.step-num {
-display: inline-block;
-width: 18px; height: 18px;
-border-radius: 50%;
-background: var(–border);
-text-align: center;
-line-height: 18px;
-font-size: 10px;
-margin-right: 8px;
-transition: all 0.3s;
-}
-.step.active .step-num { background: var(–accent); color: #000; }
-.step.done .step-num { background: var(–success); color: #000; }
+  /* Steps indicator */
+  .steps {
+    display: flex;
+    gap: 0;
+    margin-bottom: 36px;
+  }
+  .step {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--border);
+    transition: all 0.3s;
+  }
+  .step.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .step.done {
+    color: var(--success);
+    border-bottom-color: var(--success);
+  }
+  .step-num {
+    display: inline-block;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--border);
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
+    margin-right: 8px;
+    transition: all 0.3s;
+  }
+  .step.active .step-num { background: var(--accent); color: #000; }
+  .step.done .step-num { background: var(--success); color: #000; }
 
-/* Panels */
-.panel {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 12px;
-padding: 28px;
-margin-bottom: 20px;
-animation: fadeIn 0.3s ease;
-}
+  /* Panels */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+  }
 
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(8px); }
-to { opacity: 1; transform: translateY(0); }
-}
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-.panel-label {
-font-size: 11px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–muted);
-margin-bottom: 16px;
-display: flex;
-align-items: center;
-gap: 10px;
-}
-.panel-label::after {
-content: ‘’;
-flex: 1;
-height: 1px;
-background: var(–border);
-}
+  .panel-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .panel-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-/* Inputs */
-label {
-display: block;
-font-size: 11px;
-letter-spacing: 1.5px;
-text-transform: uppercase;
-color: var(–muted);
-margin-bottom: 8px;
-}
+  /* Inputs */
+  label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
 
-input[type=“text”],
-input[type=“email”],
-textarea,
-select {
-width: 100%;
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 12px 14px;
-font-family: ‘DM Mono’, monospace;
-font-size: 13px;
-color: var(–text);
-transition: all 0.2s;
-outline: none;
-resize: none;
-}
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    transition: all 0.2s;
+    outline: none;
+    resize: none;
+  }
 
-input[type=“text”]:focus,
-input[type=“email”]:focus,
-textarea:focus,
-select:focus {
-border-color: var(–accent2);
-background: rgba(124,108,255,0.04);
-}
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--accent2);
+    background: rgba(124,108,255,0.04);
+  }
 
-input::placeholder, textarea::placeholder { color: var(–muted); opacity: 0.6; }
+  input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.6; }
 
-.field { margin-bottom: 18px; }
+  .field { margin-bottom: 18px; }
 
-/* Email input area */
-.email-input-wrap {
-position: relative;
-}
+  /* Email input area */
+  .email-input-wrap {
+    position: relative;
+  }
 
-.email-input-wrap textarea {
-min-height: 120px;
-padding-right: 100px;
-}
+  .email-input-wrap textarea {
+    min-height: 120px;
+    padding-right: 100px;
+  }
 
-.email-count-badge {
-position: absolute;
-top: 12px;
-right: 12px;
-background: var(–surface2);
-border: 1px solid var(–border);
-border-radius: 4px;
-padding: 4px 10px;
-font-size: 11px;
-color: var(–muted);
-}
+  .email-count-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
 
-.email-count-badge span { color: var(–accent); }
+  .email-count-badge span { color: var(--accent); }
 
-/* Email tags display */
-.email-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-margin-top: 10px;
-min-height: 0;
-}
+  /* Email tags display */
+  .email-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    min-height: 0;
+  }
 
-.email-tag {
-display: flex;
-align-items: center;
-gap: 6px;
-background: var(–surface2);
-border: 1px solid var(–border);
-border-radius: 4px;
-padding: 4px 10px;
-font-size: 11px;
-color: var(–text);
-animation: tagPop 0.15s ease;
-}
+  .email-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--text);
+    animation: tagPop 0.15s ease;
+  }
 
-@keyframes tagPop {
-from { transform: scale(0.8); opacity: 0; }
-to { transform: scale(1); opacity: 1; }
-}
+  @keyframes tagPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
-.email-tag.invalid { border-color: var(–error); color: var(–error); }
+  .email-tag.invalid { border-color: var(--error); color: var(--error); }
 
-.tag-remove {
-cursor: pointer;
-color: var(–muted);
-font-size: 14px;
-line-height: 1;
-transition: color 0.2s;
-}
-.tag-remove:hover { color: var(–error); }
+  .tag-remove {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .tag-remove:hover { color: var(--error); }
 
-/* Import CSV */
-.csv-drop {
-border: 2px dashed var(–border);
-border-radius: 8px;
-padding: 20px;
-text-align: center;
-cursor: pointer;
-transition: all 0.2s;
-color: var(–muted);
-font-size: 12px;
-margin-top: 12px;
-}
-.csv-drop:hover, .csv-drop.drag-over {
-border-color: var(–accent2);
-background: rgba(124,108,255,0.04);
-color: var(–accent2);
-}
-.csv-drop input { display: none; }
+  /* Import CSV */
+  .csv-drop {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  .csv-drop:hover, .csv-drop.drag-over {
+    border-color: var(--accent2);
+    background: rgba(124,108,255,0.04);
+    color: var(--accent2);
+  }
+  .csv-drop input { display: none; }
 
-/* Rich subject line */
-.subject-row {
-display: flex;
-gap: 10px;
-align-items: flex-start;
-}
-.subject-row input { flex: 1; }
+  /* Rich subject line */
+  .subject-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .subject-row input { flex: 1; }
 
-/* Variable chips */
-.vars {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-margin-top: 8px;
-}
-.var-chip {
-background: rgba(124,108,255,0.15);
-border: 1px solid rgba(124,108,255,0.3);
-border-radius: 4px;
-padding: 3px 9px;
-font-size: 11px;
-color: var(–accent2);
-cursor: pointer;
-transition: all 0.2s;
-user-select: none;
-}
-.var-chip:hover { background: rgba(124,108,255,0.3); }
+  /* Variable chips */
+  .vars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .var-chip {
+    background: rgba(124,108,255,0.15);
+    border: 1px solid rgba(124,108,255,0.3);
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 11px;
+    color: var(--accent2);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .var-chip:hover { background: rgba(124,108,255,0.3); }
 
-/* Message editor */
-#messageBody {
-min-height: 200px;
-line-height: 1.7;
-}
+  /* Message editor */
+  #messageBody {
+    min-height: 200px;
+    line-height: 1.7;
+  }
 
-/* Toolbar */
-.toolbar {
-display: flex;
-gap: 4px;
-padding: 8px;
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 8px 8px 0 0;
-border-bottom: none;
-}
-.toolbar button {
-background: none;
-border: none;
-color: var(–muted);
-padding: 6px 10px;
-border-radius: 4px;
-cursor: pointer;
-font-size: 13px;
-font-family: ‘DM Mono’, monospace;
-transition: all 0.2s;
-}
-.toolbar button:hover { background: var(–surface2); color: var(–text); }
-.toolbar .sep { width: 1px; background: var(–border); margin: 2px 4px; }
+  /* Toolbar */
+  .toolbar {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+  }
+  .toolbar button {
+    background: none;
+    border: none;
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    transition: all 0.2s;
+  }
+  .toolbar button:hover { background: var(--surface2); color: var(--text); }
+  .toolbar .sep { width: 1px; background: var(--border); margin: 2px 4px; }
 
-.toolbar ~ textarea {
-border-radius: 0 0 8px 8px;
-}
+  .toolbar ~ textarea {
+    border-radius: 0 0 8px 8px;
+  }
 
-/* Scheduling */
-.schedule-row {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 14px;
-}
+  /* Scheduling */
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
 
-/* Delay slider */
-.delay-wrap {
-display: flex;
-align-items: center;
-gap: 14px;
-}
-input[type=“range”] {
-flex: 1;
-accent-color: var(–accent);
-height: 4px;
-cursor: pointer;
-}
-.delay-val {
-min-width: 70px;
-text-align: right;
-font-size: 12px;
-color: var(–accent);
-}
+  /* Delay slider */
+  .delay-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent);
+    height: 4px;
+    cursor: pointer;
+  }
+  .delay-val {
+    min-width: 70px;
+    text-align: right;
+    font-size: 12px;
+    color: var(--accent);
+  }
 
-/* Buttons */
-.btn {
-display: inline-flex;
-align-items: center;
-gap: 8px;
-padding: 13px 24px;
-border-radius: 8px;
-font-family: ‘DM Mono’, monospace;
-font-size: 13px;
-font-weight: 500;
-cursor: pointer;
-border: none;
-transition: all 0.2s;
-letter-spacing: 0.5px;
-}
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
 
-.btn-primary {
-background: var(–accent);
-color: #000;
-font-weight: 600;
-}
-.btn-primary:hover { background: #d4eb3a; transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); }
-.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+  }
+  .btn-primary:hover { background: #d4eb3a; transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-.btn-secondary {
-background: var(–surface2);
-color: var(–text);
-border: 1px solid var(–border);
-}
-.btn-secondary:hover { border-color: var(–muted); }
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--muted); }
 
-.btn-danger {
-background: rgba(255,90,90,0.1);
-color: var(–error);
-border: 1px solid rgba(255,90,90,0.3);
-}
-.btn-danger:hover { background: rgba(255,90,90,0.2); }
+  .btn-danger {
+    background: rgba(255,90,90,0.1);
+    color: var(--error);
+    border: 1px solid rgba(255,90,90,0.3);
+  }
+  .btn-danger:hover { background: rgba(255,90,90,0.2); }
 
-/* Action row */
-.action-row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 14px;
-margin-top: 8px;
-}
+  /* Action row */
+  .action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 8px;
+  }
 
-/* Preview */
-.preview-pane {
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 20px;
-font-size: 13px;
-line-height: 1.7;
-color: var(–text);
-min-height: 100px;
-white-space: pre-wrap;
-}
+  /* Preview */
+  .preview-pane {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    min-height: 100px;
+    white-space: pre-wrap;
+  }
 
-.preview-from {
-font-size: 11px;
-color: var(–muted);
-margin-bottom: 6px;
-}
-.preview-subject {
-font-family: ‘Syne’, sans-serif;
-font-weight: 600;
-font-size: 16px;
-margin-bottom: 14px;
-color: var(–text);
-}
-.preview-divider {
-height: 1px;
-background: var(–border);
-margin: 14px 0;
-}
+  .preview-from {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .preview-subject {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .preview-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 14px 0;
+  }
 
-/* Progress panel */
-.progress-panel { display: none; }
-.progress-panel.active { display: block; }
+  /* Progress panel */
+  .progress-panel { display: none; }
+  .progress-panel.active { display: block; }
 
-.progress-bar-wrap {
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 6px;
-height: 8px;
-overflow: hidden;
-margin: 14px 0;
-}
-.progress-bar {
-height: 100%;
-background: linear-gradient(90deg, var(–accent2), var(–accent));
-border-radius: 6px;
-transition: width 0.4s ease;
-width: 0%;
-}
+  .progress-bar-wrap {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+    margin: 14px 0;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 6px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
 
-.send-log {
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 14px;
-height: 200px;
-overflow-y: auto;
-font-size: 12px;
-line-height: 1.8;
-}
+  .send-log {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    height: 200px;
+    overflow-y: auto;
+    font-size: 12px;
+    line-height: 1.8;
+  }
 
-.log-line { display: flex; gap: 10px; align-items: flex-start; }
-.log-time { color: var(–muted); min-width: 80px; }
-.log-ok { color: var(–success); }
-.log-err { color: var(–error); }
-.log-info { color: var(–accent2); }
-.log-warn { color: var(–warning); }
+  .log-line { display: flex; gap: 10px; align-items: flex-start; }
+  .log-time { color: var(--muted); min-width: 80px; }
+  .log-ok { color: var(--success); }
+  .log-err { color: var(--error); }
+  .log-info { color: var(--accent2); }
+  .log-warn { color: var(--warning); }
 
-.stat-row {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 12px;
-margin-bottom: 20px;
-}
-.stat-box {
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 8px;
-padding: 14px 16px;
-}
-.stat-label { font-size: 10px; color: var(–muted); letter-spacing: 2px; text-transform: uppercase; }
-.stat-val {
-font-family: ‘Syne’, sans-serif;
-font-size: 24px;
-font-weight: 700;
-margin-top: 4px;
-}
-.stat-val.ok { color: var(–success); }
-.stat-val.err { color: var(–error); }
-.stat-val.info { color: var(–accent); }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat-label { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .stat-val.ok { color: var(--success); }
+  .stat-val.err { color: var(--error); }
+  .stat-val.info { color: var(--accent); }
 
-/* Notification */
-.notif {
-position: fixed;
-bottom: 30px;
-right: 30px;
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 10px;
-padding: 14px 20px;
-font-size: 13px;
-z-index: 999;
-display: flex;
-align-items: center;
-gap: 10px;
-transform: translateY(80px);
-opacity: 0;
-transition: all 0.3s ease;
-max-width: 340px;
-}
-.notif.show { transform: translateY(0); opacity: 1; }
-.notif.success { border-color: rgba(61,255,160,0.4); }
-.notif.error { border-color: rgba(255,90,90,0.4); }
-.notif.warning { border-color: rgba(255,184,77,0.4); }
-.notif-icon { font-size: 16px; }
+  /* Notification */
+  .notif {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 13px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-width: 340px;
+  }
+  .notif.show { transform: translateY(0); opacity: 1; }
+  .notif.success { border-color: rgba(61,255,160,0.4); }
+  .notif.error { border-color: rgba(255,90,90,0.4); }
+  .notif.warning { border-color: rgba(255,184,77,0.4); }
+  .notif-icon { font-size: 16px; }
 
-/* Auth overlay */
-.auth-overlay {
-position: fixed;
-inset: 0;
-background: rgba(10,10,15,0.92);
-backdrop-filter: blur(12px);
-z-index: 100;
-display: flex;
-align-items: center;
-justify-content: center;
-animation: fadeIn 0.3s ease;
-}
-.auth-modal {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: 16px;
-padding: 44px 40px;
-max-width: 440px;
-width: 90%;
-text-align: center;
-}
-.auth-modal h2 {
-font-family: ‘Syne’, sans-serif;
-font-size: 26px;
-font-weight: 800;
-margin-bottom: 10px;
-}
-.auth-modal h2 span { color: var(–accent); }
-.auth-modal p {
-color: var(–muted);
-font-size: 13px;
-line-height: 1.7;
-margin-bottom: 28px;
-}
-.gmail-btn {
-display: inline-flex;
-align-items: center;
-gap: 12px;
-background: #fff;
-color: #333;
-border: none;
-border-radius: 8px;
-padding: 13px 24px;
-font-size: 14px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.2s;
-font-family: ‘DM Mono’, monospace;
-width: 100%;
-justify-content: center;
-}
-.gmail-btn:hover { background: #f0f0f0; transform: translateY(-1px); }
+  /* Auth overlay */
+  .auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+  }
+  .auth-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 44px 40px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+  }
+  .auth-modal h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .auth-modal h2 span { color: var(--accent); }
+  .auth-modal p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .gmail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Mono', monospace;
+    width: 100%;
+    justify-content: center;
+  }
+  .gmail-btn:hover { background: #f0f0f0; transform: translateY(-1px); }
 
-.auth-note {
-font-size: 11px;
-color: var(–muted);
-margin-top: 16px;
-line-height: 1.6;
-}
+  .auth-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 16px;
+    line-height: 1.6;
+  }
 
-.google-icon {
-width: 20px;
-height: 20px;
-}
+  .google-icon {
+    width: 20px;
+    height: 20px;
+  }
 
-/* Responsive */
-@media (max-width: 600px) {
-header { flex-direction: column; align-items: flex-start; gap: 14px; }
-.schedule-row { grid-template-columns: 1fr; }
-.stat-row { grid-template-columns: 1fr 1fr; }
-.action-row { flex-direction: column; }
-.action-row .btn { width: 100%; justify-content: center; }
-}
+  /* Responsive */
+  @media (max-width: 600px) {
+    header { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .schedule-row { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .action-row { flex-direction: column; }
+    .action-row .btn { width: 100%; justify-content: center; }
+  }
 </style>
-
 </head>
 <body>
 
 <!-- Auth Overlay -->
-
 <div class="auth-overlay" id="authOverlay">
   <div class="auth-modal">
     <h2>MAIL<span>BLAST</span></h2>
@@ -655,7 +652,6 @@ header { flex-direction: column; align-items: flex-start; gap: 14px; }
   </header>
 
   <!-- Steps -->
-
   <div class="steps">
     <div class="step active" id="step1"><span class="step-num">1</span>Recipients</div>
     <div class="step" id="step2"><span class="step-num">2</span>Compose</div>
@@ -663,7 +659,6 @@ header { flex-direction: column; align-items: flex-start; gap: 14px; }
   </div>
 
   <!-- SECTION 1: Recipients -->
-
   <div id="section1">
     <div class="panel">
       <div class="panel-label">Add Recipients</div>
@@ -677,105 +672,97 @@ header { flex-direction: column; align-items: flex-start; gap: 14px; }
         <div class="email-tags" id="emailTags"></div>
       </div>
 
-```
-  <div class="field">
-    <label>Or import from CSV</label>
-    <div class="csv-drop" id="csvDrop"
-      ondrop="handleCSVDrop(event)" ondragover="event.preventDefault(); this.classList.add('drag-over')"
-      ondragleave="this.classList.remove('drag-over')"
-      onclick="document.getElementById('csvFile').click()">
-      <input type="file" id="csvFile" accept=".csv,.txt" onchange="handleCSVFile(event)">
-      ↑ Drop CSV file here or click to browse<br>
-      <span style="font-size:11px;opacity:0.6">One email per line, or comma-separated</span>
+      <div class="field">
+        <label>Or import from CSV</label>
+        <div class="csv-drop" id="csvDrop"
+          ondrop="handleCSVDrop(event)" ondragover="event.preventDefault(); this.classList.add('drag-over')"
+          ondragleave="this.classList.remove('drag-over')"
+          onclick="document.getElementById('csvFile').click()">
+          <input type="file" id="csvFile" accept=".csv,.txt" onchange="handleCSVFile(event)">
+          ↑ Drop CSV file here or click to browse<br>
+          <span style="font-size:11px;opacity:0.6">One email per line, or comma-separated</span>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+        <button class="btn btn-secondary" onclick="clearEmails()">Clear All</button>
+        <button class="btn btn-primary" onclick="goToStep(2)" id="nextBtn1" disabled>
+          Continue → Compose
+        </button>
+      </div>
     </div>
   </div>
 
-  <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
-    <button class="btn btn-secondary" onclick="clearEmails()">Clear All</button>
-    <button class="btn btn-primary" onclick="goToStep(2)" id="nextBtn1" disabled>
-      Continue → Compose
-    </button>
-  </div>
-</div>
-```
-
-  </div>
-
   <!-- SECTION 2: Compose -->
-
   <div id="section2" style="display:none">
     <div class="panel">
       <div class="panel-label">Message Details</div>
 
-```
-  <div class="field">
-    <label>From Name (display name)</label>
-    <input type="text" id="fromName" placeholder="e.g. John from Acme Co.">
-  </div>
+      <div class="field">
+        <label>From Name (display name)</label>
+        <input type="text" id="fromName" placeholder="e.g. John from Acme Co.">
+      </div>
 
-  <div class="field">
-    <label>Subject Line</label>
-    <input type="text" id="subjectLine" placeholder="e.g. Hey {{name}}, we have something for you!">
-    <div class="vars">
-      <span style="font-size:11px;color:var(--muted);margin-right:4px;">Insert variable:</span>
-      <span class="var-chip" onclick="insertVar('{{name}}')">{{name}}</span>
-      <span class="var-chip" onclick="insertVar('{{email}}')">{{email}}</span>
-      <span class="var-chip" onclick="insertVar('{{date}}')">{{date}}</span>
-      <span class="var-chip" onclick="insertVar('{{company}}')">{{company}}</span>
-    </div>
-  </div>
+      <div class="field">
+        <label>Subject Line</label>
+        <input type="text" id="subjectLine" placeholder="e.g. Hey {{name}}, we have something for you!">
+        <div class="vars">
+          <span style="font-size:11px;color:var(--muted);margin-right:4px;">Insert variable:</span>
+          <span class="var-chip" onclick="insertVar('{{name}}')">{{name}}</span>
+          <span class="var-chip" onclick="insertVar('{{email}}')">{{email}}</span>
+          <span class="var-chip" onclick="insertVar('{{date}}')">{{date}}</span>
+          <span class="var-chip" onclick="insertVar('{{company}}')">{{company}}</span>
+        </div>
+      </div>
 
-  <div class="field">
-    <label>Message Body</label>
-    <div class="toolbar">
-      <button onclick="wrapText('**','**')" title="Bold"><b>B</b></button>
-      <button onclick="wrapText('_','_')" title="Italic"><i>I</i></button>
-      <div class="sep"></div>
-      <button onclick="insertVar('{{name}}')" title="Insert name">{{name}}</button>
-      <button onclick="insertVar('{{email}}')" title="Insert email">{{email}}</button>
-      <button onclick="insertVar('{{date}}')" title="Insert date">{{date}}</button>
-      <div class="sep"></div>
-      <button onclick="clearBody()" title="Clear" style="color:var(--error)">✕</button>
+      <div class="field">
+        <label>Message Body</label>
+        <div class="toolbar">
+          <button onclick="wrapText('**','**')" title="Bold"><b>B</b></button>
+          <button onclick="wrapText('_','_')" title="Italic"><i>I</i></button>
+          <div class="sep"></div>
+          <button onclick="insertVar('{{name}}')" title="Insert name">{{name}}</button>
+          <button onclick="insertVar('{{email}}')" title="Insert email">{{email}}</button>
+          <button onclick="insertVar('{{date}}')" title="Insert date">{{date}}</button>
+          <div class="sep"></div>
+          <button onclick="clearBody()" title="Clear" style="color:var(--error)">✕</button>
+        </div>
+        <textarea id="messageBody" placeholder="Write your message here...&#10;&#10;Hi {{name}},&#10;&#10;I hope this finds you well..."></textarea>
+      </div>
     </div>
-    <textarea id="messageBody" placeholder="Write your message here...&#10;&#10;Hi {{name}},&#10;&#10;I hope this finds you well..."></textarea>
-  </div>
-</div>
 
-<div class="panel">
-  <div class="panel-label">Sending Options</div>
-  <div class="schedule-row">
-    <div class="field">
-      <label>Send Mode</label>
-      <select id="sendMode">
-        <option value="now">Send immediately</option>
-        <option value="schedule">Schedule for later</option>
-      </select>
+    <div class="panel">
+      <div class="panel-label">Sending Options</div>
+      <div class="schedule-row">
+        <div class="field">
+          <label>Send Mode</label>
+          <select id="sendMode">
+            <option value="now">Send immediately</option>
+            <option value="schedule">Schedule for later</option>
+          </select>
+        </div>
+        <div class="field" id="scheduleField" style="display:none">
+          <label>Schedule Date & Time</label>
+          <input type="datetime-local" id="scheduleTime">
+        </div>
+      </div>
+      <div class="field">
+        <label>Delay between emails: <span id="delayLabel">1.5 seconds</span></label>
+        <div class="delay-wrap">
+          <input type="range" id="delayRange" min="0.5" max="10" step="0.5" value="1.5"
+            oninput="updateDelay(this.value)">
+          <span class="delay-val" id="delayVal">1.5s</span>
+        </div>
+      </div>
     </div>
-    <div class="field" id="scheduleField" style="display:none">
-      <label>Schedule Date & Time</label>
-      <input type="datetime-local" id="scheduleTime">
-    </div>
-  </div>
-  <div class="field">
-    <label>Delay between emails: <span id="delayLabel">1.5 seconds</span></label>
-    <div class="delay-wrap">
-      <input type="range" id="delayRange" min="0.5" max="10" step="0.5" value="1.5"
-        oninput="updateDelay(this.value)">
-      <span class="delay-val" id="delayVal">1.5s</span>
-    </div>
-  </div>
-</div>
 
-<div class="action-row">
-  <button class="btn btn-secondary" onclick="goToStep(1)">← Back</button>
-  <button class="btn btn-primary" onclick="goToStep(3)">Preview & Send →</button>
-</div>
-```
-
+    <div class="action-row">
+      <button class="btn btn-secondary" onclick="goToStep(1)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(3)">Preview & Send →</button>
+    </div>
   </div>
 
   <!-- SECTION 3: Review & Send -->
-
   <div id="section3" style="display:none">
     <div class="panel">
       <div class="panel-label">Email Preview (first recipient)</div>
@@ -785,71 +772,66 @@ header { flex-direction: column; align-items: flex-start; gap: 14px; }
       <div class="preview-pane" id="previewBody">—</div>
     </div>
 
-```
-<div class="panel">
-  <div class="panel-label">Send Summary</div>
-  <div class="stat-row">
-    <div class="stat-box">
-      <div class="stat-label">Recipients</div>
-      <div class="stat-val info" id="sumRecipients">0</div>
+    <div class="panel">
+      <div class="panel-label">Send Summary</div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">Recipients</div>
+          <div class="stat-val info" id="sumRecipients">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Est. Time</div>
+          <div class="stat-val info" id="sumTime">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Send Mode</div>
+          <div class="stat-val info" id="sumMode">Now</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <button class="btn btn-secondary" onclick="goToStep(2)">← Edit</button>
+        <button class="btn btn-primary" id="sendBtn" onclick="startSending()">
+          ⚡ Send to All Recipients
+        </button>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-label">Est. Time</div>
-      <div class="stat-val info" id="sumTime">—</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-label">Send Mode</div>
-      <div class="stat-val info" id="sumMode">Now</div>
-    </div>
-  </div>
-  <div class="action-row">
-    <button class="btn btn-secondary" onclick="goToStep(2)">← Edit</button>
-    <button class="btn btn-primary" id="sendBtn" onclick="startSending()">
-      ⚡ Send to All Recipients
-    </button>
-  </div>
-</div>
 
-<!-- Progress -->
-<div class="panel progress-panel" id="progressPanel">
-  <div class="panel-label">Sending Progress</div>
-  <div class="stat-row">
-    <div class="stat-box">
-      <div class="stat-label">Sent</div>
-      <div class="stat-val ok" id="countSent">0</div>
+    <!-- Progress -->
+    <div class="panel progress-panel" id="progressPanel">
+      <div class="panel-label">Sending Progress</div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">Sent</div>
+          <div class="stat-val ok" id="countSent">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Failed</div>
+          <div class="stat-val err" id="countFailed">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Remaining</div>
+          <div class="stat-val info" id="countRemaining">0</div>
+        </div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="send-log" id="sendLog"></div>
+      <div style="margin-top:14px; display:flex; gap:10px; justify-content:flex-end;">
+        <button class="btn btn-danger" id="stopBtn" onclick="stopSending()">Stop Sending</button>
+        <button class="btn btn-secondary" id="resetBtn" onclick="resetAll()" style="display:none">Start Over</button>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-label">Failed</div>
-      <div class="stat-val err" id="countFailed">0</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-label">Remaining</div>
-      <div class="stat-val info" id="countRemaining">0</div>
-    </div>
-  </div>
-  <div class="progress-bar-wrap">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  <div class="send-log" id="sendLog"></div>
-  <div style="margin-top:14px; display:flex; gap:10px; justify-content:flex-end;">
-    <button class="btn btn-danger" id="stopBtn" onclick="stopSending()">Stop Sending</button>
-    <button class="btn btn-secondary" id="resetBtn" onclick="resetAll()" style="display:none">Start Over</button>
-  </div>
-</div>
-```
-
   </div>
 </div>
 
 <!-- Notification -->
-
 <div class="notif" id="notif">
   <span class="notif-icon" id="notifIcon">✓</span>
   <span id="notifMsg">Done!</span>
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
 // ─── State ───────────────────────────────────────────────────────────
 let emails = [];
 let isSending = false;
@@ -857,7 +839,7 @@ let sendTimeout = null;
 let connected = false;
 
 // ─── HARDCODED CLIENT ID ──────────────────────────────────────────────
-const CLIENT_ID = ‘779028521662-uded077qtkacf4t4k4spc38f6dgvt748.apps.googleusercontent.com’;
+const CLIENT_ID = '779028521662-uded077qtkacf4t4k4spc38f6dgvt748.apps.googleusercontent.com';
 
 // ─── Gmail OAuth (Google Identity Services) ───────────────────────────
 let accessToken = null;
@@ -866,402 +848,410 @@ let googleReady = false;
 
 // Wait for GIS to load then init token client
 function waitForGoogle() {
-if (typeof google !== ‘undefined’ && google.accounts) {
-googleReady = true;
-tokenClient = google.accounts.oauth2.initTokenClient({
-client_id: CLIENT_ID,
-scope: ‘https://www.googleapis.com/auth/gmail.send email profile’,
-callback: async (tokenResponse) => {
-if (tokenResponse.error) {
-document.getElementById(‘authStatus’).textContent = ’Error: ’ + tokenResponse.error;
-document.getElementById(‘authStatus’).style.color = ‘var(–error)’;
-return;
-}
-accessToken = tokenResponse.access_token;
-try {
-const res = await fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`);
-const info = await res.json();
-const email = info.email || ‘Connected’;
-document.getElementById(‘authEmail’).textContent = email;
-document.getElementById(‘authBadge’).classList.add(‘connected’);
-document.getElementById(‘authOverlay’).style.display = ‘none’;
-connected = true;
-showNotif(‘success’, ‘✓’, `Signed in as ${email}`);
-} catch(e) {
-document.getElementById(‘authEmail’).textContent = ‘Connected’;
-document.getElementById(‘authOverlay’).style.display = ‘none’;
-connected = true;
-}
-}
-});
-document.getElementById(‘authStatus’).textContent = ‘Ready — click Sign in with Google’;
-document.getElementById(‘authStatus’).style.color = ‘var(–success)’;
-} else {
-setTimeout(waitForGoogle, 300);
-}
+  if (typeof google !== 'undefined' && google.accounts) {
+    googleReady = true;
+    tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: CLIENT_ID,
+      scope: 'https://www.googleapis.com/auth/gmail.send email profile',
+      callback: async (tokenResponse) => {
+        if (tokenResponse.error) {
+          document.getElementById('authStatus').textContent = 'Error: ' + tokenResponse.error;
+          document.getElementById('authStatus').style.color = 'var(--error)';
+          return;
+        }
+        accessToken = tokenResponse.access_token;
+        try {
+          const res = await fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`);
+          const info = await res.json();
+          const email = info.email || 'Connected';
+          document.getElementById('authEmail').textContent = email;
+          document.getElementById('authBadge').classList.add('connected');
+          document.getElementById('authOverlay').style.display = 'none';
+          connected = true;
+          showNotif('success', '✓', `Signed in as ${email}`);
+        } catch(e) {
+          document.getElementById('authEmail').textContent = 'Connected';
+          document.getElementById('authOverlay').style.display = 'none';
+          connected = true;
+        }
+      }
+    });
+    document.getElementById('authStatus').textContent = 'Ready — click Sign in with Google';
+    document.getElementById('authStatus').style.color = 'var(--success)';
+  } else {
+    setTimeout(waitForGoogle, 300);
+  }
 }
 waitForGoogle();
 
 function connectGmail() {
-if (!googleReady || !tokenClient) {
-document.getElementById(‘authStatus’).textContent = ‘Still loading… please wait and try again’;
-document.getElementById(‘authStatus’).style.color = ‘var(–warning)’;
-waitForGoogle();
-return;
-}
-tokenClient.requestAccessToken({ prompt: ‘consent’ });
+  if (!googleReady || !tokenClient) {
+    document.getElementById('authStatus').textContent = 'Still loading... please wait and try again';
+    document.getElementById('authStatus').style.color = 'var(--warning)';
+    waitForGoogle();
+    return;
+  }
+  tokenClient.requestAccessToken({ prompt: 'consent' });
 }
 
 function disconnectGmail() {
-if (!confirm(‘Disconnect your Gmail account?’)) return;
-if (accessToken) {
-google.accounts.oauth2.revoke(accessToken, () => {});
-accessToken = null;
-}
-connected = false;
-googleReady = false;
-tokenClient = null;
-document.getElementById(‘authBadge’).classList.remove(‘connected’);
-document.getElementById(‘authEmail’).textContent = ‘—’;
-document.getElementById(‘authOverlay’).style.display = ‘flex’;
-waitForGoogle();
+  if (!confirm('Disconnect your Gmail account?')) return;
+  if (accessToken) {
+    google.accounts.oauth2.revoke(accessToken, () => {});
+    accessToken = null;
+  }
+  connected = false;
+  googleReady = false;
+  tokenClient = null;
+  document.getElementById('authBadge').classList.remove('connected');
+  document.getElementById('authEmail').textContent = '—';
+  document.getElementById('authOverlay').style.display = 'flex';
+  waitForGoogle();
 }
 
 // ─── Email Management ─────────────────────────────────────────────────
 function isValidEmail(e) {
-return /^[^\s@]+@[^\s@]+.[^\s@]+$/.test(e.trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
 }
 
 function handleEmailKey(e) {
-if ([’ ’, ‘,’, ‘Enter’, ‘Tab’].includes(e.key)) {
-e.preventDefault();
-parseEmailInput();
-}
+  if ([' ', ',', 'Enter', 'Tab'].includes(e.key)) {
+    e.preventDefault();
+    parseEmailInput();
+  }
 }
 
 function parseEmailInput() {
-const raw = document.getElementById(‘emailInput’).value;
-const parts = raw.split(/[\s,;\n]+/).filter(Boolean);
-parts.forEach(addEmail);
-document.getElementById(‘emailInput’).value = ‘’;
-updateEmailCount();
+  const raw = document.getElementById('emailInput').value;
+  const parts = raw.split(/[\s,;\n]+/).filter(Boolean);
+  parts.forEach(addEmail);
+  document.getElementById('emailInput').value = '';
+  updateEmailCount();
 }
 
 function updateEmailCount() {
-const raw = document.getElementById(‘emailInput’).value;
-const pending = raw.split(/[\s,;\n]+/).filter(e => e.length > 2).length;
-document.getElementById(‘emailCount’).textContent = emails.length + pending;
-document.getElementById(‘nextBtn1’).disabled = emails.length === 0 && pending === 0;
+  const raw = document.getElementById('emailInput').value;
+  const pending = raw.split(/[\s,;\n]+/).filter(e => e.length > 2).length;
+  document.getElementById('emailCount').textContent = emails.length + pending;
+  document.getElementById('nextBtn1').disabled = emails.length === 0 && pending === 0;
 }
 
 function addEmail(e) {
-e = e.trim().toLowerCase();
-if (!e) return;
-if (emails.includes(e)) { showNotif(‘warning’, ‘⚠’, `${e} already added`); return; }
-emails.push(e);
-renderTags();
-updateEmailCount();
-document.getElementById(‘nextBtn1’).disabled = false;
+  e = e.trim().toLowerCase();
+  if (!e) return;
+  if (emails.includes(e)) { showNotif('warning', '⚠', `${e} already added`); return; }
+  emails.push(e);
+  renderTags();
+  updateEmailCount();
+  document.getElementById('nextBtn1').disabled = false;
 }
 
 function removeEmail(e) {
-emails = emails.filter(x => x !== e);
-renderTags();
-updateEmailCount();
-if (emails.length === 0) document.getElementById(‘nextBtn1’).disabled = true;
+  emails = emails.filter(x => x !== e);
+  renderTags();
+  updateEmailCount();
+  if (emails.length === 0) document.getElementById('nextBtn1').disabled = true;
 }
 
 function renderTags() {
-const wrap = document.getElementById(‘emailTags’);
-wrap.innerHTML = emails.map(e =>
-`<div class="email-tag ${isValidEmail(e) ? '' : 'invalid'}"> ${e} <span class="tag-remove" onclick="removeEmail('${e}')">×</span> </div>`
-).join(’’);
+  const wrap = document.getElementById('emailTags');
+  wrap.innerHTML = emails.map(e =>
+    `<div class="email-tag ${isValidEmail(e) ? '' : 'invalid'}">
+      ${e}
+      <span class="tag-remove" onclick="removeEmail('${e}')">×</span>
+    </div>`
+  ).join('');
 }
 
 function clearEmails() {
-emails = [];
-renderTags();
-updateEmailCount();
-document.getElementById(‘emailInput’).value = ‘’;
-document.getElementById(‘nextBtn1’).disabled = true;
+  emails = [];
+  renderTags();
+  updateEmailCount();
+  document.getElementById('emailInput').value = '';
+  document.getElementById('nextBtn1').disabled = true;
 }
 
 function handleCSVDrop(e) {
-e.preventDefault();
-document.getElementById(‘csvDrop’).classList.remove(‘drag-over’);
-const file = e.dataTransfer.files[0];
-if (file) readCSVFile(file);
+  e.preventDefault();
+  document.getElementById('csvDrop').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) readCSVFile(file);
 }
 
 function handleCSVFile(e) {
-const file = e.target.files[0];
-if (file) readCSVFile(file);
+  const file = e.target.files[0];
+  if (file) readCSVFile(file);
 }
 
 function readCSVFile(file) {
-const reader = new FileReader();
-reader.onload = (e) => {
-const text = e.target.result;
-const found = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}/g) || [];
-found.forEach(addEmail);
-showNotif(‘success’, ‘✓’, `Imported ${found.length} emails from CSV`);
-};
-reader.readAsText(file);
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const text = e.target.result;
+    const found = text.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g) || [];
+    found.forEach(addEmail);
+    showNotif('success', '✓', `Imported ${found.length} emails from CSV`);
+  };
+  reader.readAsText(file);
 }
 
 // ─── Send Mode ────────────────────────────────────────────────────────
-document.getElementById(‘sendMode’).addEventListener(‘change’, function() {
-document.getElementById(‘scheduleField’).style.display = this.value === ‘schedule’ ? ‘block’ : ‘none’;
+document.getElementById('sendMode').addEventListener('change', function() {
+  document.getElementById('scheduleField').style.display = this.value === 'schedule' ? 'block' : 'none';
 });
 
 // ─── Delay slider ─────────────────────────────────────────────────────
 function updateDelay(val) {
-document.getElementById(‘delayVal’).textContent = val + ‘s’;
-document.getElementById(‘delayLabel’).textContent = val + ’ seconds’;
+  document.getElementById('delayVal').textContent = val + 's';
+  document.getElementById('delayLabel').textContent = val + ' seconds';
 }
 
 // ─── Variables ────────────────────────────────────────────────────────
 function insertVar(v) {
-const active = document.activeElement;
-const target = (active.id === ‘subjectLine’ || active.id === ‘messageBody’) ? active : document.getElementById(‘messageBody’);
-const start = target.selectionStart;
-const end = target.selectionEnd;
-target.value = target.value.slice(0, start) + v + target.value.slice(end);
-target.selectionStart = target.selectionEnd = start + v.length;
-target.focus();
+  const active = document.activeElement;
+  const target = (active.id === 'subjectLine' || active.id === 'messageBody') ? active : document.getElementById('messageBody');
+  const start = target.selectionStart;
+  const end = target.selectionEnd;
+  target.value = target.value.slice(0, start) + v + target.value.slice(end);
+  target.selectionStart = target.selectionEnd = start + v.length;
+  target.focus();
 }
 
 function wrapText(before, after) {
-const ta = document.getElementById(‘messageBody’);
-const start = ta.selectionStart, end = ta.selectionEnd;
-const sel = ta.value.slice(start, end);
-ta.value = ta.value.slice(0, start) + before + sel + after + ta.value.slice(end);
-ta.focus();
+  const ta = document.getElementById('messageBody');
+  const start = ta.selectionStart, end = ta.selectionEnd;
+  const sel = ta.value.slice(start, end);
+  ta.value = ta.value.slice(0, start) + before + sel + after + ta.value.slice(end);
+  ta.focus();
 }
 
 function clearBody() {
-if (confirm(‘Clear message body?’)) document.getElementById(‘messageBody’).value = ‘’;
+  if (confirm('Clear message body?')) document.getElementById('messageBody').value = '';
 }
 
 // ─── Steps ────────────────────────────────────────────────────────────
 function goToStep(n) {
-// Validate
-if (n === 2) {
-parseEmailInput();
-const valid = emails.filter(isValidEmail);
-if (valid.length === 0) { showNotif(‘error’, ‘✕’, ‘Add at least one valid email’); return; }
-emails = valid;
-renderTags();
-}
-if (n === 3) {
-if (!document.getElementById(‘subjectLine’).value.trim()) {
-showNotif(‘error’, ‘✕’, ‘Subject line is required’); return;
-}
-if (!document.getElementById(‘messageBody’).value.trim()) {
-showNotif(‘error’, ‘✕’, ‘Message body is required’); return;
-}
-buildPreview();
-}
+  // Validate
+  if (n === 2) {
+    parseEmailInput();
+    const valid = emails.filter(isValidEmail);
+    if (valid.length === 0) { showNotif('error', '✕', 'Add at least one valid email'); return; }
+    emails = valid;
+    renderTags();
+  }
+  if (n === 3) {
+    if (!document.getElementById('subjectLine').value.trim()) {
+      showNotif('error', '✕', 'Subject line is required'); return;
+    }
+    if (!document.getElementById('messageBody').value.trim()) {
+      showNotif('error', '✕', 'Message body is required'); return;
+    }
+    buildPreview();
+  }
 
-for (let i = 1; i <= 3; i++) {
-document.getElementById(`section${i}`).style.display = i === n ? ‘block’ : ‘none’;
-const stepEl = document.getElementById(`step${i}`);
-stepEl.classList.remove(‘active’,‘done’);
-if (i < n) stepEl.classList.add(‘done’);
-if (i === n) stepEl.classList.add(‘active’);
-}
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById(`section${i}`).style.display = i === n ? 'block' : 'none';
+    const stepEl = document.getElementById(`step${i}`);
+    stepEl.classList.remove('active','done');
+    if (i < n) stepEl.classList.add('done');
+    if (i === n) stepEl.classList.add('active');
+  }
 }
 
 // ─── Preview ──────────────────────────────────────────────────────────
 function resolveVars(text, email) {
-const name = email.split(’@’)[0].replace(/[._]/g, ’ ‘).replace(/\b\w/g, c => c.toUpperCase());
-const date = new Date().toLocaleDateString(‘en-US’, { weekday:‘long’, year:‘numeric’, month:‘long’, day:‘numeric’ });
-return text
-.replace(/{{name}}/g, name)
-.replace(/{{email}}/g, email)
-.replace(/{{date}}/g, date)
-.replace(/{{company}}/g, email.split(’@’)[1]?.split(’.’)[0] || ‘there’);
+  const name = email.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const date = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  return text
+    .replace(/\{\{name\}\}/g, name)
+    .replace(/\{\{email\}\}/g, email)
+    .replace(/\{\{date\}\}/g, date)
+    .replace(/\{\{company\}\}/g, email.split('@')[1]?.split('.')[0] || 'there');
 }
 
 function buildPreview() {
-const sample = emails[0] || ‘example@email.com’;
-const fromName = document.getElementById(‘fromName’).value || ‘Sender’;
-const subject = document.getElementById(‘subjectLine’).value;
-const body = document.getElementById(‘messageBody’).value;
-const delay = parseFloat(document.getElementById(‘delayRange’).value);
-const mode = document.getElementById(‘sendMode’).value;
+  const sample = emails[0] || 'example@email.com';
+  const fromName = document.getElementById('fromName').value || 'Sender';
+  const subject = document.getElementById('subjectLine').value;
+  const body = document.getElementById('messageBody').value;
+  const delay = parseFloat(document.getElementById('delayRange').value);
+  const mode = document.getElementById('sendMode').value;
 
-document.getElementById(‘previewFrom’).textContent = `From: ${fromName} <${document.getElementById('authEmail').textContent}>`;
-document.getElementById(‘previewSubject’).textContent = resolveVars(subject, sample);
-document.getElementById(‘previewBody’).textContent = resolveVars(body, sample);
+  document.getElementById('previewFrom').textContent = `From: ${fromName} <${document.getElementById('authEmail').textContent}>`;
+  document.getElementById('previewSubject').textContent = resolveVars(subject, sample);
+  document.getElementById('previewBody').textContent = resolveVars(body, sample);
 
-document.getElementById(‘sumRecipients’).textContent = emails.length;
-const totalSec = Math.ceil(emails.length * delay);
-document.getElementById(‘sumTime’).textContent = totalSec < 60 ? totalSec + ‘s’ : Math.ceil(totalSec/60) + ‘m’;
-document.getElementById(‘sumMode’).textContent = mode === ‘schedule’ ? ‘Scheduled’ : ‘Now’;
+  document.getElementById('sumRecipients').textContent = emails.length;
+  const totalSec = Math.ceil(emails.length * delay);
+  document.getElementById('sumTime').textContent = totalSec < 60 ? totalSec + 's' : Math.ceil(totalSec/60) + 'm';
+  document.getElementById('sumMode').textContent = mode === 'schedule' ? 'Scheduled' : 'Now';
 }
 
 // ─── Sending ──────────────────────────────────────────────────────────
 let sentCount = 0, failedCount = 0;
 
 async function startSending() {
-if (isSending) return;
-isSending = true;
-sentCount = 0; failedCount = 0;
+  if (isSending) return;
+  isSending = true;
+  sentCount = 0; failedCount = 0;
 
-document.getElementById(‘sendBtn’).disabled = true;
-document.getElementById(‘progressPanel’).classList.add(‘active’);
-document.getElementById(‘stopBtn’).style.display = ‘inline-flex’;
-document.getElementById(‘resetBtn’).style.display = ‘none’;
-document.getElementById(‘sendLog’).innerHTML = ‘’;
+  document.getElementById('sendBtn').disabled = true;
+  document.getElementById('progressPanel').classList.add('active');
+  document.getElementById('stopBtn').style.display = 'inline-flex';
+  document.getElementById('resetBtn').style.display = 'none';
+  document.getElementById('sendLog').innerHTML = '';
 
-const delay = parseFloat(document.getElementById(‘delayRange’).value) * 1000;
-const subject = document.getElementById(‘subjectLine’).value;
-const body = document.getElementById(‘messageBody’).value;
+  const delay = parseFloat(document.getElementById('delayRange').value) * 1000;
+  const subject = document.getElementById('subjectLine').value;
+  const body = document.getElementById('messageBody').value;
 
-addLog(‘info’, `Starting bulk send to ${emails.length} recipients...`);
+  addLog('info', `Starting bulk send to ${emails.length} recipients...`);
 
-for (let i = 0; i < emails.length; i++) {
-if (!isSending) break;
+  for (let i = 0; i < emails.length; i++) {
+    if (!isSending) break;
 
-```
-const email = emails[i];
-document.getElementById('countRemaining').textContent = emails.length - i;
-updateProgress(i, emails.length);
+    const email = emails[i];
+    document.getElementById('countRemaining').textContent = emails.length - i;
+    updateProgress(i, emails.length);
 
-await new Promise(r => sendTimeout = setTimeout(r, i === 0 ? 0 : delay));
+    await new Promise(r => sendTimeout = setTimeout(r, i === 0 ? 0 : delay));
 
-if (!isSending) break;
+    if (!isSending) break;
 
-// Simulate send (replace with real Gmail API call)
-const success = await simulateSend(email, resolveVars(subject, email), resolveVars(body, email));
+    // Simulate send (replace with real Gmail API call)
+    const success = await simulateSend(email, resolveVars(subject, email), resolveVars(body, email));
 
-if (success) {
-  sentCount++;
-  document.getElementById('countSent').textContent = sentCount;
-  addLog('ok', `✓ Sent to ${email}`);
-} else {
-  failedCount++;
-  document.getElementById('countFailed').textContent = failedCount;
-  addLog('err', `✕ Failed: ${email}`);
-}
-```
+    if (success) {
+      sentCount++;
+      document.getElementById('countSent').textContent = sentCount;
+      addLog('ok', `✓ Sent to ${email}`);
+    } else {
+      failedCount++;
+      document.getElementById('countFailed').textContent = failedCount;
+      addLog('err', `✕ Failed: ${email}`);
+    }
+  }
 
-}
-
-isSending = false;
-updateProgress(emails.length, emails.length);
-document.getElementById(‘countRemaining’).textContent = ‘0’;
-document.getElementById(‘stopBtn’).style.display = ‘none’;
-document.getElementById(‘resetBtn’).style.display = ‘inline-flex’;
-addLog(‘info’, `Done! ${sentCount} sent, ${failedCount} failed.`);
-showNotif(failedCount === 0 ? ‘success’ : ‘warning’,
-failedCount === 0 ? ‘✓’ : ‘⚠’,
-`${sentCount} emails sent${failedCount > 0 ? `, ${failedCount} failed` : ' successfully!'}`
-);
+  isSending = false;
+  updateProgress(emails.length, emails.length);
+  document.getElementById('countRemaining').textContent = '0';
+  document.getElementById('stopBtn').style.display = 'none';
+  document.getElementById('resetBtn').style.display = 'inline-flex';
+  addLog('info', `Done! ${sentCount} sent, ${failedCount} failed.`);
+  showNotif(failedCount === 0 ? 'success' : 'warning',
+    failedCount === 0 ? '✓' : '⚠',
+    `${sentCount} emails sent${failedCount > 0 ? `, ${failedCount} failed` : ' successfully!'}`
+  );
 }
 
 async function simulateSend(to, subject, body) {
-// ─── Real Gmail API send ──────────────────────────────────
-if (!accessToken) {
-showNotif(‘error’, ‘✕’, ‘Not authenticated — please reconnect’);
-isSending = false;
-return false;
-}
-try {
-const raw = makeEmail(to, subject, body);
-const res = await fetch(‘https://gmail.googleapis.com/gmail/v1/users/me/messages/send’, {
-method: ‘POST’,
-headers: {
-‘Authorization’: ’Bearer ’ + accessToken,
-‘Content-Type’: ‘application/json’
-},
-body: JSON.stringify({ raw })
-});
-if (res.status === 401) {
-// Token expired — request new one silently
-addLog(‘warn’, ‘⟳ Token expired, refreshing…’);
-await new Promise((resolve) => {
-tokenClient.callback = async (t) => { accessToken = t.access_token; resolve(); };
-tokenClient.requestAccessToken({ prompt: ‘’ });
-});
-// Retry once
-const retry = await fetch(‘https://gmail.googleapis.com/gmail/v1/users/me/messages/send’, {
-method: ‘POST’,
-headers: { ‘Authorization’: ’Bearer ’ + accessToken, ‘Content-Type’: ‘application/json’ },
-body: JSON.stringify({ raw })
-});
-return retry.ok;
-}
-return res.ok;
-} catch (e) {
-console.error(‘Send error:’, e);
-return false;
-}
+  // ─── Real Gmail API send ──────────────────────────────────
+  if (!accessToken) {
+    showNotif('error', '✕', 'Not authenticated — please reconnect');
+    isSending = false;
+    return false;
+  }
+  try {
+    const raw = makeEmail(to, subject, body);
+    const res = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ raw })
+    });
+    if (res.status === 401) {
+      // Token expired — request new one silently
+      addLog('warn', '⟳ Token expired, refreshing...');
+      await new Promise((resolve) => {
+        tokenClient.callback = async (t) => { accessToken = t.access_token; resolve(); };
+        tokenClient.requestAccessToken({ prompt: '' });
+      });
+      // Retry once
+      const retry = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + accessToken, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ raw })
+      });
+      return retry.ok;
+    }
+    return res.ok;
+  } catch (e) {
+    console.error('Send error:', e);
+    return false;
+  }
 }
 
 function makeEmail(to, subject, body) {
-const from = document.getElementById(‘authEmail’).textContent;
-const fromName = document.getElementById(‘fromName’).value || from;
-const raw = [
-`From: ${fromName} <${from}>`,
-`To: ${to}`,
-`Subject: ${subject}`,
-`MIME-Version: 1.0`,
-`Content-Type: text/plain; charset=utf-8`,
-``,
-body
-].join(’\r\n’);
-return btoa(unescape(encodeURIComponent(raw))).replace(/+/g,’-’).replace(///g,’_’).replace(/=+$/,’’);
+  const from = document.getElementById('authEmail').textContent;
+  const fromName = document.getElementById('fromName').value || from;
+  const raw = [
+    `From: ${fromName} <${from}>`,
+    `To: ${to}`,
+    `Subject: ${subject}`,
+    `MIME-Version: 1.0`,
+    `Content-Type: text/plain; charset=utf-8`,
+    ``,
+    body
+  ].join('\r\n');
+  return btoa(unescape(encodeURIComponent(raw))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 }
 
 function stopSending() {
-isSending = false;
-clearTimeout(sendTimeout);
-addLog(‘warn’, `⚠ Sending stopped by user`);
-document.getElementById(‘stopBtn’).style.display = ‘none’;
-document.getElementById(‘resetBtn’).style.display = ‘inline-flex’;
-showNotif(‘warning’, ‘⚠’, ‘Sending stopped’);
+  isSending = false;
+  clearTimeout(sendTimeout);
+  addLog('warn', `⚠ Sending stopped by user`);
+  document.getElementById('stopBtn').style.display = 'none';
+  document.getElementById('resetBtn').style.display = 'inline-flex';
+  showNotif('warning', '⚠', 'Sending stopped');
 }
 
 function updateProgress(current, total) {
-const pct = total === 0 ? 0 : Math.round((current / total) * 100);
-document.getElementById(‘progressBar’).style.width = pct + ‘%’;
+  const pct = total === 0 ? 0 : Math.round((current / total) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
 }
 
 function addLog(type, msg) {
-const log = document.getElementById(‘sendLog’);
-const time = new Date().toLocaleTimeString();
-const line = document.createElement(‘div’);
-line.className = ‘log-line’;
-line.innerHTML = `<span class="log-time">${time}</span><span class="log-${type}">${msg}</span>`;
-log.appendChild(line);
-log.scrollTop = log.scrollHeight;
+  const log = document.getElementById('sendLog');
+  const time = new Date().toLocaleTimeString();
+  const line = document.createElement('div');
+  line.className = 'log-line';
+  line.innerHTML = `<span class="log-time">${time}</span><span class="log-${type}">${msg}</span>`;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
 }
 
 function resetAll() {
-emails = [];
-sentCount = 0; failedCount = 0;
-isSending = false;
-renderTags();
-updateEmailCount();
-document.getElementById(‘emailInput’).value = ‘’;
-document.getElementById(‘subjectLine’).value = ‘’;
-document.getElementById(‘messageBody’).value = ‘’;
-document.getElementById(‘fromName’).value = ‘’;
-document.getElementById(‘sendBtn’).disabled = false;
-document.getElementById(‘progressPanel’).classList.remove(‘active’);
-document.getElementById(‘countSent’).textContent = ‘0’;
-document.getElementById(‘countFailed’).textContent = ‘0’;
-document.getElementById(‘countRemaining’).textContent = ‘0’;
-document.getElementById(‘progressBar’).style.width = ‘0%’;
-document.getElementById(‘sendLog’).innerHTML = ‘’;
-goToStep(1);
+  emails = [];
+  sentCount = 0; failedCount = 0;
+  isSending = false;
+  renderTags();
+  updateEmailCount();
+  document.getElementById('emailInput').value = '';
+  document.getElementById('subjectLine').value = '';
+  document.getElementById('messageBody').value = '';
+  document.getElementById('fromName').value = '';
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('progressPanel').classList.remove('active');
+  document.getElementById('countSent').textContent = '0';
+  document.getElementById('countFailed').textContent = '0';
+  document.getElementById('countRemaining').textContent = '0';
+  document.getElementById('progressBar').style.width = '0%';
+  document.getElementById('sendLog').innerHTML = '';
+  goToStep(1);
 }
 
 // ─── Notifications ────────────────────────────────────────────────────
 let notifTimer;
 function showNotif(type, icon, msg) {
-const n = document.getElementById(‘notif’);
-n.className = `notif ${type}`;
-document.getElementById(‘notifIcon’).tex
+  const n = document.getElementById('notif');
+    n.className = `notif ${type}`;
+  document.getElementById('notifIcon').textContent = icon;
+  document.getElementById('notifMsg').textContent = msg;
+  n.classList.add('show');
+  clearTimeout(notifTimer);
+  notifTimer = setTimeout(() => n.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>
